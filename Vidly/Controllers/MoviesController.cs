@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -13,7 +15,21 @@ namespace Vidly.Controllers
         {
             return View();
         }
+        
+        public ActionResult Random()
+        {
+            var movie = new Movie() { Name="Shrek! - The Movie" };
+            var customer1 = new Customer() { Name = "Daniel" };
+            var customer2 = new Customer() { Name = "Jacky" };
+            var viewModel = new RandomMovieViewModel()
+            {
+                Movie = movie,
+                Customers = new List<Customer> { customer1, customer2}
+            };
+            return View(viewModel);
+        }
 
+        [Route("movies/released/{year}/{month:range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content($"parameters: {year} and {month}");
