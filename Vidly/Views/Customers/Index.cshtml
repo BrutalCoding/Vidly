@@ -21,7 +21,7 @@
                     {
                         <tr>
                             <td>@user.Id</td>
-                            <td><a href="/customers/details/@user.Id">@user.Name</a></td>
+                            <td>@Html.ActionLink(user.Name, "Edit", new {id = user.Id})</td>
                             <td>
                                 @user.MembershipType.Name
                             </td>
