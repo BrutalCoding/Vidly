@@ -1,0 +1,28 @@
+﻿@model Vidly.Models.Movie
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Details</h2>
+@{
+    if (!Model.Empty)
+    {
+        //User found
+        <h3>@Model.Name</h3>
+        <ul>
+            <li>Genre: @Model.Genre</li>
+            <li>Release Date: @Model.ReleaseDate</li>
+            <li>Date Added: @Model.DateAdded</li>
+            <li>Number in stock: @Model.Stock</li>
+        </ul>
+
+    }
+    else
+    {
+        <h3>No movie found</h3>
+    }
+}
+
+
+

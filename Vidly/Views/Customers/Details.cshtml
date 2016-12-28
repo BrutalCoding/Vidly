@@ -1,5 +1,4 @@
-﻿@using Microsoft.Ajax.Utilities
-@model Vidly.Models.Customer
+﻿@model Vidly.Models.Customer
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,6 +10,15 @@
     {
         //User found
         <h3>@Model.Name</h3>
+        <ul>
+            <li>Membership Type: @Model.MembershipType.Name</li>
+            @*If customer is equal or older than 100 years*@
+            @if (@Model.BirthDate >= DateTime.Now.AddYears(-100))
+            {
+                <li>Birthdate: @Model.BirthDate</li>
+            }
+        </ul>
+
     }
     else
     {

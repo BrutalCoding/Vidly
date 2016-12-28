@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
-using Vidly.ViewModels;
 using System.Data.Entity;
 
 namespace Vidly.Controllers
@@ -37,7 +36,7 @@ namespace Vidly.Controllers
             }
             else
             {
-                Customer customer = _context.Customers.SingleOrDefault(c => c.Id == id.Value);
+                Customer customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id.Value);
                 if(customer == null)
                     return View(new Customer());
                 return View(customer);

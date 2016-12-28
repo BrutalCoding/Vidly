@@ -1,44 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
-using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies
-        public ActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public MoviesController()
         {
-            var movie1 = new Movie() { Name = "Shrek! - The Movie" };
-            var movie2 = new Movie() { Name = "Terminator" };
-            var viewModel = new IndexMovieViewModel()
-            {
-                Movies = new List<Movie> { movie1, movie2 }
-            };
-            return View(viewModel);
-        }
-        
-        public ActionResult Random()
-        {
-            var movie = new Movie() { Name="Shrek! - The Movie" };
-            var customer1 = new Customer() { Name = "Daniel" };
-            var customer2 = new Customer() { Name = "Jacky" };
-            var viewModel = new RandomMovieViewModel()
-            {
-                Movie = movie,
-                Customers = new List<Customer> { customer1, customer2}
-            };
-            return View(viewModel);
+            _context = new ApplicationDbContext();
         }
 
-        [Route("movies/released/{year}/{month:range(1,12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
+        protected override void Dispose(bool disposing)
         {
-            return Content($"parameters: {year} and {month}");
+            _context.Dispose();
+        }
+
+        public ActionResult Index()
+        {
+            var movies = _context.Movies.ToList();
+            return View(movies);
+        }
+        
+        public ActionResult Details(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return View(new Movie());
+            }
+            else
+            {
+                Movie movie = _context.Movies.SingleOrDefault(m => m.Id == id.Value);
+                if (movie == null)
+                    return View(new Movie());
+                return View(movie);
+            }
         }
     }
 }
