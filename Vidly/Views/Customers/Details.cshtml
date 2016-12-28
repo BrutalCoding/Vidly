@@ -1,0 +1,20 @@
+﻿@using Microsoft.Ajax.Utilities
+@model Vidly.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Details</h2>
+@{
+    if (!Model.Empty)
+    {
+        //User found
+        <h3>@Model.Name</h3>
+    }
+    else
+    {
+        <h3>No user found</h3>
+    }
+}
+
