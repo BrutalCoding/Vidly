@@ -13,6 +13,7 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
+                <th>Discount Rate</th>
             </tr>
             <tr>
                 @{
@@ -21,6 +22,10 @@
                         <tr>
                             <td>@user.Id</td>
                             <td><a href="/customers/details/@user.Id">@user.Name</a></td>
+                            <td>
+                                @user.MembershipType.DiscountRate%
+                            </td>
+
                         </tr>
                     }
                 }
