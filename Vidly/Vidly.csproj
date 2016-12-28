@@ -190,6 +190,10 @@
     <Compile Include="Migrations\201612280225537_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>201612280225537_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612280237357_ApplyAnnonationsToCustomerName.cs" />
+    <Compile Include="Migrations\201612280237357_ApplyAnnonationsToCustomerName.Designer.cs">
+      <DependentUpon>201612280237357_ApplyAnnonationsToCustomerName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -285,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612280225537_PopulateMembershipTypes.resx">
       <DependentUpon>201612280225537_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612280237357_ApplyAnnonationsToCustomerName.resx">
+      <DependentUpon>201612280237357_ApplyAnnonationsToCustomerName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

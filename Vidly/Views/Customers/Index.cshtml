@@ -1,4 +1,4 @@
-﻿@model Vidly.ViewModels.IndexCustomerViewModel
+﻿@model IEnumerable<Vidly.Models.Customer>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +7,7 @@
 <h2>Customers</h2>
 
 @{
-    if (Model.Customers.Count > 0)
+    if (Model.Any())
     {
         <table class="table">
             <tr>
@@ -16,7 +16,7 @@
             </tr>
             <tr>
                 @{
-                    foreach (var user in Model.Customers)
+                    foreach (var user in Model)
                     {
                         <tr>
                             <td>@user.Id</td>
