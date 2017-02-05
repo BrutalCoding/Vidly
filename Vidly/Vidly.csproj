@@ -214,9 +214,38 @@
     <Compile Include="Migrations\201612281734131_PopulateMovies.Designer.cs">
       <DependentUpon>201612281734131_PopulateMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702042042208_AddedMoviesForm.cs" />
+    <Compile Include="Migrations\201702042042208_AddedMoviesForm.Designer.cs">
+      <DependentUpon>201702042042208_AddedMoviesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702042047049_AddGenresToMovie.cs" />
+    <Compile Include="Migrations\201702042047049_AddGenresToMovie.Designer.cs">
+      <DependentUpon>201702042047049_AddGenresToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702042053269_UpdateMoviesWithGenres.cs" />
+    <Compile Include="Migrations\201702042053269_UpdateMoviesWithGenres.Designer.cs">
+      <DependentUpon>201702042053269_UpdateMoviesWithGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051207108_ChangedMovieModelWithGenre_Id.cs" />
+    <Compile Include="Migrations\201702051207108_ChangedMovieModelWithGenre_Id.Designer.cs">
+      <DependentUpon>201702051207108_ChangedMovieModelWithGenre_Id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051212182_GenreIdToMovieModel.cs" />
+    <Compile Include="Migrations\201702051212182_GenreIdToMovieModel.Designer.cs">
+      <DependentUpon>201702051212182_GenreIdToMovieModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051230422_MissingStuff.cs" />
+    <Compile Include="Migrations\201702051230422_MissingStuff.Designer.cs">
+      <DependentUpon>201702051230422_MissingStuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051527083_UpdatedMovieFiles.cs" />
+    <Compile Include="Migrations\201702051527083_UpdatedMovieFiles.Designer.cs">
+      <DependentUpon>201702051527083_UpdatedMovieFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -224,6 +253,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -284,6 +314,7 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +358,30 @@
     <EmbeddedResource Include="Migrations\201612281734131_PopulateMovies.resx">
       <DependentUpon>201612281734131_PopulateMovies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702042042208_AddedMoviesForm.resx">
+      <DependentUpon>201702042042208_AddedMoviesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702042047049_AddGenresToMovie.resx">
+      <DependentUpon>201702042047049_AddGenresToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702042053269_UpdateMoviesWithGenres.resx">
+      <DependentUpon>201702042053269_UpdateMoviesWithGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051207108_ChangedMovieModelWithGenre_Id.resx">
+      <DependentUpon>201702051207108_ChangedMovieModelWithGenre_Id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051212182_GenreIdToMovieModel.resx">
+      <DependentUpon>201702051212182_GenreIdToMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051230422_MissingStuff.resx">
+      <DependentUpon>201702051230422_MissingStuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051527083_UpdatedMovieFiles.resx">
+      <DependentUpon>201702051527083_UpdatedMovieFiles.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

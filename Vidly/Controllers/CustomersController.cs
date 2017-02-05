@@ -22,17 +22,8 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        public ActionResult New()
-        {
-            var membershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new CustomerFormViewModel()
-            {
-                MembershipTypes = membershipTypes
-            };
-            return View("CustomerForm", viewModel);
-        }
-
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)
@@ -42,7 +33,7 @@ namespace Vidly.Controllers
                     Customer = customer,
                     MembershipTypes = _context.MembershipTypes.ToList()
                 };
-                return View("CustomerForm");
+                return View("CustomerForm", viewModel);
             }
             if (customer.Id == 0)
             {
@@ -83,6 +74,18 @@ namespace Vidly.Controllers
                     return View(new Customer());
                 return View(customer);
             }
+        }
+        public ViewResult New()
+        {
+            var genres = _context.Genres.ToList();
+
+            var viewModel = new CustomerFormViewModel()
+            {
+                Customer = new Customer(),
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View("CustomerForm", viewModel);
         }
 
         public ActionResult Edit(int id)
