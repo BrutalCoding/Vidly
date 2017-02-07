@@ -11,11 +11,12 @@
 @{
     if (Model.Any())
     {
-        <table class="table">
+        <table id="customers" class="table">
             <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Membership Type</th>
+                <th>Delete</th>
             </tr>
             <tr>
                 @{
@@ -27,7 +28,9 @@
                             <td>
                                 @user.MembershipType.Name
                             </td>
-
+                            <td>
+                                <button class="btn-link js-delete">Delete</button>
+                            </td>
                         </tr>
                     }
                 }
@@ -38,4 +41,18 @@
     {
         <h3>No customers found</h3>
     }
+}
+
+@section Scripts
+{
+    <script>
+        $(document)
+            .ready(function() {
+                $("#customers .js-delete")
+                    .on("click",
+                        function() {
+                            alert("Test");
+                        });
+            });
+    </script>
 }
